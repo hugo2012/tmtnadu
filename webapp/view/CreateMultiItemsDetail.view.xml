@@ -1,0 +1,108 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	height="100%"
+	xmlns:layout="sap.ui.layout"
+	xmlns:forms="sap.ui.layout.form"
+	controllerName="com.bosch.rb1m.tm.tmtnadu.controller.CreateMultiItemsDetail">
+	<App id="_IDGenAppCrt">
+	<pages>
+			<Page id="idObjectPageCrt" title="{objectModel>/pageTitle}" showNavButton="true" navButtonPress="onNavBack">
+				<subHeader>
+					<OverflowToolbar id="tbHeaderCrt">
+						<ToolbarSpacer id="_IDGenToolbarSpacerCrt"/>	
+					</OverflowToolbar>
+				</subHeader>
+				<content>
+		<!-- 		 <VBox id="messageStrip1" backgroundDesign="Transparent">
+				<MessageStrip id="messageStripWarning"
+				text="{i18n>CreateMultiWaring_txt}"
+				type="Warning"
+				showIcon="true"
+				showCloseButton="true"
+				class="sapUiMediumMarginBottom">
+				</MessageStrip>
+				 </VBox> -->
+				 <VBox id="_IDGenVBoxCrt" backgroundDesign="Transparent">	
+				 <Table id="itemsTable" showNoData="true" visible="true" mode="None" 
+					growing="true" growingThreshold="20" 
+					updateFinished="fnOnDynamicTableUpdated"
+					items="{ path: 'objectModel>/RowsItems',   templateShareable: false }" 
+					growingTriggerText="{i18n>btnGrowing}">
+						<headerToolbar>
+							<Toolbar id="_IDGenToolbarCrt">
+								<content>
+									<Title id="dynamicTableTitleCrt" text="Records" level="H2"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+							<columns>
+								<Column id="ID_OUTPUT_TYPE_TXT" visible="false">
+									<Text id="OUTPUT_TYPE_TXT" text="{i18n>output_type_txt}" />
+								</Column>
+								<Column id="ID_OUTPUT_TYPE_CRT">
+									<Text id="OUTPUT_TYPE_CRT" text="{i18n>output_type_txt}" />
+								</Column>
+                                <Column id="ID_UNAME_CRT">
+									<Text id="UNAME_CRT" text="{i18n>uname_txt}" />
+								</Column>
+								<Column id="_IDOUTPUT_DEVICE_CRT" >
+									<Text id="OUTPUT_DEVICE_CRT" text="{i18n>out_device_txt}" />
+								</Column>
+								<Column id="ID_PRINT_IMMEDIATELY_CRT"  visible="false">
+									<Text id="PRINT_IMMEDIATELY_CRT" text="{i18n>print_immediately_txt}" />
+								</Column>
+								<Column id="ID_REL_AFTER_OUTPUT_CRT" hAlign="Center" visible="false">
+									<Text id="REL_AFTER_OUTPUT_CRT"  text="{i18n>rel_after_output_txt}" />
+								</Column>
+	
+							</columns>
+							<items>
+								<ColumnListItem id="_IDGenColLstItem_CRT" vAlign="Middle" type="Active">
+									<cells>	
+											<Input id="OutDescrpt" editable="false" 
+											value="{objectModel>Description}" 
+												 />	
+
+									    <ComboBox id="_IDcmb_OUTPUT_TYPE_CRT" name="OutputType" items="{ path: 'comboBoxModel>/OutputTypeSet',templateShareable: false}" 
+												selectedKey="{objectModel>OutputType}" editable="false" width="100%">
+												<core:Item id="_IDGenItem112_CRT" key="{comboBoxModel>OutputType}" text="{comboBoxModel>Description}"/>
+										</ComboBox>
+
+										<Input id="UNAME_12_CRT" editable="{objectModel>/editEnable}" showValueHelp="true" 
+											value="{objectModel>Uname}" submit="onCheckUname"
+												required="true"
+												maxLength="12"								
+												 liveChange="onInputChange" change="onInputChange"
+												valueHelpRequest="onValueHelpRequest_Table" />			
+										<Input id="comb_OUTPUT_DEVICE_CRT"  showValueHelp="true" submit="onCheckOutputDevice" valueHelpRequest="onValueHelpRequest_Table"
+											value="{objectModel>OutputDevice}" editable="{objectModel>/editEnable}" liveChange="onInputChange" change="onInputChange"/>				
+										<Switch id="txt_PRINT_IMMEDIATELY_CRT"
+											state="{= ${objectModel>PrintImmediately} === true ? true : false}"
+											change="onInputChange"
+											customTextOn="Yes"
+											customTextOff="No"
+											enabled="{objectModel>/editEnable}"
+											/>											
+										<Switch id="comb_REL_AFTER_OUTPUT_CRT"
+											state="{= ${objectModel>RelAfterOutput} === true ? true : false}"
+											change="onInputChange"
+											customTextOn="Yes"
+											customTextOff="No"
+											enabled="{objectModel>/editEnable}"
+											/>								 						
+									</cells>
+								</ColumnListItem>
+							</items>
+					</Table>				 	
+				 </VBox>
+				</content>
+				<footer>
+					<OverflowToolbar id="tbBottom1" >
+						<ToolbarSpacer id="_IDGenToolbarSpacer41"/>
+						<Button id="btnSaveCrt" visible="{objectModel>/showFooter}" type="Emphasized" text="{i18n>saveBtnTxt}" tooltip="{i18n>saveBtnTxt}" press="onSave"/>
+						<Button id="btnCancelCrt" visible="{objectModel>/showFooter}" text="{i18n>cancelBtnTxt}" tooltip="{i18n>cancelBtnTxt}" press="onCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+		</App>	
+</mvc:View>

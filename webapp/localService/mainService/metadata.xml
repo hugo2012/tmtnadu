@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_xrb1mxtm_i_tnadu" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="xRB1MxTM_I_OUTPUTTYPE_VHType" sap:label="Output type Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OutputType"/>
+                </Key>
+                <Property Name="OutputType" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Action Definition" sap:quickinfo="PPF: Name of Action Definition"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="xRB1MxTM_I_OUTPUT_DEVICESType" sap:label="Printer devices" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OutputDevice"/>
+                </Key>
+                <Property Name="OutputDevice" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Output Device" sap:quickinfo="Spool: Long device names"/>
+                <Property Name="padest" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Short Name" sap:quickinfo="Spool: short name for output device"/>
+            </EntityType>
+            <EntityType Name="xRB1MxTM_I_TNADUType" sap:label="Output Determination: Printer per User" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OutputType"/>
+                    <PropertyRef Name="Uname"/>
+                </Key>
+                <Property Name="OutputType" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Action Definition" sap:quickinfo="PPF: Name of Action Definition"/>
+                <Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="OutputDevice" Type="Edm.String" MaxLength="30" sap:label="Output Device" sap:quickinfo="Spool: Long device names"/>
+                <Property Name="PrintImmediately" Type="Edm.Boolean" sap:label="Print immediately"/>
+                <Property Name="RelAfterOutput" Type="Edm.Boolean" sap:label="Release after output"/>
+                <Property Name="Createddate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/>
+                <Property Name="Createduser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By"/>
+                <Property Name="Lastchangedate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date" sap:quickinfo="Last Changed On"/>
+                <Property Name="Lastchangeuser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Last Changed By"/>
+                <NavigationProperty Name="to_outputdevice" Relationship="cds_xrb1mxtm_i_tnadu.assoc_D1A4F50CCA7217308D79D1C69585DBB2" FromRole="FromRole_assoc_D1A4F50CCA7217308D79D1C69585DBB2" ToRole="ToRole_assoc_D1A4F50CCA7217308D79D1C69585DBB2"/>
+                <NavigationProperty Name="to_outputtype" Relationship="cds_xrb1mxtm_i_tnadu.assoc_4C60BDE66306DD5F1C5D77805C1CCA4C" FromRole="FromRole_assoc_4C60BDE66306DD5F1C5D77805C1CCA4C" ToRole="ToRole_assoc_4C60BDE66306DD5F1C5D77805C1CCA4C"/>
+                <NavigationProperty Name="to_usr02" Relationship="cds_xrb1mxtm_i_tnadu.assoc_7ECEC4EF80164C5B8248C98ACD2548E4" FromRole="FromRole_assoc_7ECEC4EF80164C5B8248C98ACD2548E4" ToRole="ToRole_assoc_7ECEC4EF80164C5B8248C98ACD2548E4"/>
+            </EntityType>
+            <EntityType Name="xRB1MxTM_I_USR02Type" sap:label="CDS View of user-table: USR02" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Bname"/>
+                </Key>
+                <Property Name="Bname" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="Bcode" Type="Edm.Binary" MaxLength="8" sap:label="Initial Password" sap:quickinfo="Password Hash Key"/>
+                <Property Name="Gltgv" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid from" sap:quickinfo="User valid from"/>
+                <Property Name="Gltgb" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid to" sap:quickinfo="User valid to"/>
+                <Property Name="Class" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Group"/>
+                <Property Name="Locnt" Type="Edm.Byte" sap:label="Failed Logons" sap:quickinfo="Number of failed logon attempts"/>
+                <Property Name="Uflag" Type="Edm.Byte" sap:label="User Lock" sap:quickinfo="User Lock Status"/>
+                <Property Name="Accnt" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Account number" sap:quickinfo="Account ID"/>
+                <Property Name="Aname" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Creator" sap:quickinfo="Creator of the User Master Record"/>
+                <Property Name="Erdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Creation Date of the User Master Record"/>
+                <Property Name="Trdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Last Logon Date"/>
+                <Property Name="Ltime" Type="Edm.Time" Precision="0" sap:label="Last Logon Time"/>
+                <Property Name="Ocod1" Type="Edm.Binary" MaxLength="8" sap:label="Initial Password" sap:quickinfo="Password Hash Key"/>
+                <Property Name="Bcda1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Change" sap:quickinfo="Date of Last Password Change"/>
+                <Property Name="Codv1" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Password Code Vers." sap:quickinfo="Code Version of Password Hash Algorithm (Old Systems)"/>
+                <Property Name="Ocod2" Type="Edm.Binary" MaxLength="8" sap:label="Initial Password" sap:quickinfo="Password Hash Key"/>
+                <Property Name="Bcda2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Change" sap:quickinfo="Date of Last Password Change"/>
+                <Property Name="Codv2" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Password Code Vers." sap:quickinfo="Code Version of Password Hash Algorithm (Old Systems)"/>
+                <Property Name="Ocod3" Type="Edm.Binary" MaxLength="8" sap:label="Initial Password" sap:quickinfo="Password Hash Key"/>
+                <Property Name="Bcda3" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Change" sap:quickinfo="Date of Last Password Change"/>
+                <Property Name="Codv3" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Password Code Vers." sap:quickinfo="Code Version of Password Hash Algorithm (Old Systems)"/>
+                <Property Name="Ocod4" Type="Edm.Binary" MaxLength="8" sap:label="Initial Password" sap:quickinfo="Password Hash Key"/>
+                <Property Name="Bcda4" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Change" sap:quickinfo="Date of Last Password Change"/>
+                <Property Name="Codv4" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Password Code Vers." sap:quickinfo="Code Version of Password Hash Algorithm (Old Systems)"/>
+                <Property Name="Ocod5" Type="Edm.Binary" MaxLength="8" sap:label="Initial Password" sap:quickinfo="Password Hash Key"/>
+                <Property Name="Bcda5" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Change" sap:quickinfo="Date of Last Password Change"/>
+                <Property Name="Codv5" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Password Code Vers." sap:quickinfo="Code Version of Password Hash Algorithm (Old Systems)"/>
+                <Property Name="Versn" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="User master record version" sap:heading=""/>
+                <Property Name="Codvn" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Password Code Vers." sap:quickinfo="Code Version of Password Hash Algorithm (New Systems)"/>
+                <Property Name="Tzone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="Zbvmaster" Type="Edm.Boolean" sap:label="CUA User Template" sap:quickinfo="CUA User Template: Logon Not Possible Here"/>
+                <Property Name="Passcode" Type="Edm.Binary" MaxLength="20" sap:label="Password Hash Val" sap:quickinfo="Password Hash Value (SHA1, 160 Bit)"/>
+                <Property Name="Pwdchgdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Change" sap:quickinfo="Date of Last Password Change"/>
+                <Property Name="Pwdstate" Type="Edm.Byte" sap:label="Password Change" sap:quickinfo="Password Change: Required / Allowed / Not Possible"/>
+                <Property Name="Reserved" Type="Edm.Byte" sap:label="CUA Control Info." sap:quickinfo="CUA Control Information"/>
+                <Property Name="Pwdhistory" Type="Edm.Byte" sap:label="External History" sap:quickinfo="Indicator: Password History Stored in Table USRPWDHISTORY"/>
+                <Property Name="Pwdlgndate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Logon" sap:quickinfo="Date of Last Password Logon"/>
+                <Property Name="Pwdsetdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Reset" sap:quickinfo="Date: Password Reset by Administrator"/>
+                <Property Name="Pwdinitial" Type="Edm.Byte" sap:label="Initial Password" sap:quickinfo="Indicator: Password Is Initial (= Set by Administrator)"/>
+                <Property Name="Pwdlockdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Password Lock" sap:quickinfo="Date: Setting of Password Lock"/>
+                <Property Name="Pwdsaltedhash" Type="Edm.String" MaxLength="255" sap:label="Password Hash Value" sap:quickinfo="Password Hash Value (Various Algorithms and Codings)"/>
+                <Property Name="SecurityPolicy" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Security Policy" sap:quickinfo="Security Policy Name"/>
+            </EntityType>
+            <Association Name="assoc_4C60BDE66306DD5F1C5D77805C1CCA4C" sap:content-version="1">
+                <End Type="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_TNADUType" Multiplicity="1" Role="FromRole_assoc_4C60BDE66306DD5F1C5D77805C1CCA4C"/>
+                <End Type="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_OUTPUTTYPE_VHType" Multiplicity="0..1" Role="ToRole_assoc_4C60BDE66306DD5F1C5D77805C1CCA4C"/>
+            </Association>
+            <Association Name="assoc_7ECEC4EF80164C5B8248C98ACD2548E4" sap:content-version="1">
+                <End Type="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_TNADUType" Multiplicity="1" Role="FromRole_assoc_7ECEC4EF80164C5B8248C98ACD2548E4"/>
+                <End Type="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_USR02Type" Multiplicity="0..1" Role="ToRole_assoc_7ECEC4EF80164C5B8248C98ACD2548E4"/>
+            </Association>
+            <Association Name="assoc_D1A4F50CCA7217308D79D1C69585DBB2" sap:content-version="1">
+                <End Type="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_TNADUType" Multiplicity="1" Role="FromRole_assoc_D1A4F50CCA7217308D79D1C69585DBB2"/>
+                <End Type="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_OUTPUT_DEVICESType" Multiplicity="0..1" Role="ToRole_assoc_D1A4F50CCA7217308D79D1C69585DBB2"/>
+            </Association>
+            <EntityContainer Name="cds_xrb1mxtm_i_tnadu_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="xRB1MxTM_I_OUTPUTTYPE_VH" EntityType="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_OUTPUTTYPE_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="xRB1MxTM_I_OUTPUT_DEVICES" EntityType="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_OUTPUT_DEVICESType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="xRB1MxTM_I_TNADU" EntityType="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_TNADUType" sap:content-version="1"/>
+                <EntitySet Name="xRB1MxTM_I_USR02" EntityType="cds_xrb1mxtm_i_tnadu.xRB1MxTM_I_USR02Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_4C60BDE66306DD5F1C5D77805C1CCA4C" Association="cds_xrb1mxtm_i_tnadu.assoc_4C60BDE66306DD5F1C5D77805C1CCA4C" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="xRB1MxTM_I_TNADU" Role="FromRole_assoc_4C60BDE66306DD5F1C5D77805C1CCA4C"/>
+                    <End EntitySet="xRB1MxTM_I_OUTPUTTYPE_VH" Role="ToRole_assoc_4C60BDE66306DD5F1C5D77805C1CCA4C"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_D1A4F50CCA7217308D79D1C69585DBB2" Association="cds_xrb1mxtm_i_tnadu.assoc_D1A4F50CCA7217308D79D1C69585DBB2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="xRB1MxTM_I_TNADU" Role="FromRole_assoc_D1A4F50CCA7217308D79D1C69585DBB2"/>
+                    <End EntitySet="xRB1MxTM_I_OUTPUT_DEVICES" Role="ToRole_assoc_D1A4F50CCA7217308D79D1C69585DBB2"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_7ECEC4EF80164C5B8248C98ACD2548E4" Association="cds_xrb1mxtm_i_tnadu.assoc_7ECEC4EF80164C5B8248C98ACD2548E4" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="xRB1MxTM_I_TNADU" Role="FromRole_assoc_7ECEC4EF80164C5B8248C98ACD2548E4"/>
+                    <End EntitySet="xRB1MxTM_I_USR02" Role="ToRole_assoc_7ECEC4EF80164C5B8248C98ACD2548E4"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_xrb1mxtm_i_tnadu.cds_xrb1mxtm_i_tnadu_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_xrb1mxtm_i_tnadu.cds_xrb1mxtm_i_tnadu_Entities/xRB1MxTM_I_TNADU" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>Lastchangedate</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xrb1mxtm_i_tnadu.cds_xrb1mxtm_i_tnadu_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/rb1m/TM_TNADU_API/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://A1M.WDISP.BOSCH.COM:443/sap/opu/odata/rb1m/TM_TNADU_API/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

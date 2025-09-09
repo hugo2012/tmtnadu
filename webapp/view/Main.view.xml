@@ -1,0 +1,162 @@
+<mvc:View controllerName="com.bosch.rb1m.tm.tmtnadu.controller.Main"
+   xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+        xmlns:core="sap.ui.core"
+        xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:layout="sap.ui.layout"
+        xmlns:svm="sap.ui.comp.smartvariants"
+		height="100%">
+   <f:DynamicPage id="dynamicPageId"  >				
+			<f:header >
+				<f:DynamicPageHeader id="_IDGenDynamicPageHeader" pinnable="true" visible="true">
+				<f:content>     
+					 <HBox id="_IDGenHBox1" alignItems="Start" justifyContent="Start" class="sapUiSmallMarginBottom pgTitleFont" >
+						<Title id="_IDGenTitle1" text="{i18n>title}"/>
+					</HBox>               
+					<fb:FilterBar id="_IDGenFilterBar12" 
+					search=".onSearchGo" 
+					useToolbar="false" 
+					advancedMode="false"
+					showFilterConfiguration="false"
+					>
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem id="_IDGenFilterOutputType"
+									groupName="__$INTERNAL$"
+									name="OUTPUT_TYPE"
+									label="{i18n>outputType}"
+									mandatory="false"									
+									visibleInFilterBar="true">
+								<fb:control>							
+								 <MultiComboBox id="cboutputtype" name="OutputType"
+									selectionChange=".onOutputTypeChange"
+									width="auto"
+									items="{
+										path: 'comboBoxModel>/OutputTypeSet',
+										sorter: { path: 'Description' }		
+									}">
+									<core:Item id="_IDGenItem" key="{comboBoxModel>OutputType}" text="{comboBoxModel>Description}"/>
+								</MultiComboBox>					 
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem id="_IDGenFilterUname"
+									groupName="__$INTERNAL$"
+									name="UNAME"
+									mandatory="false"
+									label="{i18n>uname_txt}"
+									visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="_IDMulti_UNAME" name="Uname"
+									editable="true"
+									enabled="true"								
+									showSuggestion="false"
+									showValueHelp="true"
+									maxLength="12"
+									submit="onCheckUname"
+									valueHelpRequest=".onValueHelpRequestAuto"
+									>  
+								</MultiInput>
+								</fb:control>
+							</fb:FilterGroupItem> 		
+							<fb:FilterGroupItem id="_IDGenFilterGrOutputDevice"
+							groupName="__$INTERNAL$"
+							name="OUTPUT_DEVICE"
+							label="{i18n>out_device_txt}"
+							mandatory="false"	
+							visibleInFilterBar="true">
+							<fb:control>
+								<MultiInput id="_IDMulti_OUTPUT_DEVICE" name="OutputDevice"
+									editable="true"
+									enabled="true"								
+									showSuggestion="false"
+									showValueHelp="true"
+									maxLength="30"
+									submit="onCheckOutputDevice"
+									valueHelpRequest=".onValueHelpRequestAuto"
+									>  
+								</MultiInput>
+							</fb:control>
+							</fb:FilterGroupItem> 	
+						</fb:filterGroupItems>
+					</fb:FilterBar>          
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table id="dynamicTable" showNoData="true" visible="true" mode="MultiSelect" 
+					growing="true" growingThreshold="20"  selectionChange="onRowSelectionChange"
+					updateFinished="fnOnDynamicTableUpdated"
+					items="{ path: 'dataModel>/itemTableDataSet',   templateShareable: false }" 
+					itemPress="onItemPress"	
+					growingTriggerText="{i18n>btnGrowing}">
+						<headerToolbar>
+							<Toolbar id="_IDGenToolbar">
+								<content>
+									<Title id="dynamicTableTitle" text="Records" level="H2"/>
+									<ToolbarSpacer id="_IDGenToolbarSpacer"/>
+									<Button id="_IDBtnEdit"    press="onEdit" text="{i18n>editBtnTxt}" tooltip="{i18n>editBtnTxt}" enabled="{dataModel>/bOnCreate}"/>
+									<Button id="_IDBtnCreate" visible="true"  press="onCreate" text="{i18n>createBtnTxt}" tooltip="{i18n>createBtnTxt}" enabled="{dataModel>/bOnCreate}"/>
+									<Button id="_IDBtnDelete"  press="onDelete" text="{i18n>deleteBtnTxt}" tooltip="{i18n>deleteBtnTxt}" enabled="{dataModel>/bDataSelected}"/>
+									<Button id="_IDBtnExport" icon="sap-icon://excel-attachment"  press="onExport" visible="false" tooltip="{i18n>exportBtnTxt}" enabled="{dataModel>/bDataFound}"/>
+									<Button id="_IDBtnSort" tooltip="{i18n>sortBtnTxt}" visible="true" icon="sap-icon://sort" enabled="{dataModel>/bDataFound}" press="handleSortButtonPressed"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+							<columns>
+								<Column id="ID_OUTPUT_TYPE" width="16em">
+									<Text id="OUTPUT_TYPE_1" text="{i18n>output_type_txt}" />
+								</Column>
+                                <Column id="ID_UNAME" width="16em">
+									<Text id="UNAME_1" text="{i18n>uname_txt}" />
+								</Column>
+								<Column id="_IDOUTPUT_DEVICE"  width="15em" >
+									<Text id="OUTPUT_DEVICE_1" text="{i18n>out_device_txt}" />
+								</Column>
+								<Column id="ID_PRINT_IMMEDIATELY"  visible="false">
+									<Text id="PRINT_IMMEDIATELY_1" text="{i18n>print_immediately_txt}" />
+								</Column>
+								<Column id="ID_REL_AFTER_OUTPUT" hAlign="Center" visible="false">
+									<Text id="REL_AFTER_OUTPUT_1"  text="{i18n>rel_after_output_txt}" />
+								</Column>
+	
+							</columns>
+							<items>
+								<ColumnListItem id="_IDGenColumnListItem" vAlign="Middle" type="Navigation">
+									<cells>	
+									    <ComboBox id="_IDcmb_OUTPUT_TYPE" name="OutputType" items="{ path: 'comboBoxModel>/OutputTypeSet',templateShareable: false}" 
+												selectedKey="{dataModel>OutputType}" editable="false" width="100%">
+												<core:Item id="_IDGenItem112" key="{comboBoxModel>OutputType}" text="{comboBoxModel>Description}"/>
+										</ComboBox>
+
+										<Input id="UNAME_12" editable="false"
+											value="{dataModel>Uname}" />			
+										<Input id="comb_OUTPUT_DEVICE"  showValueHelp="true" submit="onCheckOutputDevice" valueHelpRequest="onValueHelpRequest_Table"
+											value="{dataModel>OutputDevice}" editable="{dataModel>/editEnable}" liveChange="onInputChange" change="onInputChange"/>				
+										<Switch id="txt_PRINT_IMMEDIATELY"
+											state="{= ${dataModel>PrintImmediately} === true ? true : false}"
+											change="onInputChange"
+											customTextOn="Yes"
+											customTextOff="No"
+											enabled="{dataModel>/editEnable}"
+											/>											
+										<Switch id="comb_REL_AFTER_OUTPUT"
+											state="{= ${dataModel>RelAfterOutput} === true ? true : false}"
+											change="onInputChange"
+											customTextOn="Yes"
+											customTextOff="No"
+											enabled="{dataModel>/editEnable}"
+											/>								 						
+									</cells>
+								</ColumnListItem>
+							</items>
+					</Table>					
+			</f:content>
+				<f:footer>
+					<OverflowToolbar id="tbBottomMain" >
+						<ToolbarSpacer id="_IDGenToolbarSpacer4main"/>
+						<Button id="bntSaveData" visible="{dataModel>/showFooter}" type="Emphasized" text="{i18n>saveBtnTxt}" tooltip="{i18n>saveBtnTxt}" press="onSave"/>
+						<Button id="btnCancelProcess" visible="{dataModel>/showFooter}" text="{i18n>cancelBtnTxt}" tooltip="{i18n>cancelBtnTxt}" press="onCancel"/>
+					</OverflowToolbar>
+				</f:footer>
+		</f:DynamicPage>
+</mvc:View>

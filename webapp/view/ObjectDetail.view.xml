@@ -1,0 +1,97 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	height="100%"
+	xmlns:layout="sap.ui.layout"
+	xmlns:forms="sap.ui.layout.form"
+	controllerName="com.bosch.rb1m.tm.tmtnadu.controller.ObjectDetail">
+	<App id="_IDGenApp">
+	<pages>
+			<Page id="idObjectPage" title="{objectModel>/pageTitle}" showNavButton="true" navButtonPress="onNavBack">
+				<subHeader>
+					<OverflowToolbar id="tbHeader">
+						<ToolbarSpacer id="_IDGenToolbarSpacer2"/>	
+						<Button id="editAction" text="{i18n>editBtnTxt}" type="Emphasized" tooltip="{i18n>editBtnTxt}" press="onEdit"/>
+						<Button id="deleteAction" text="{i18n>deleteBtnTxt}" tooltip="{i18n>deleteBtnTxt}" press="onDelete"/>
+					</OverflowToolbar>
+				</subHeader>
+				<content>
+				<VBox id="_IDGenVBox" backgroundDesign="Transparent">
+				 	<forms:Form id="_IDGenForm" width="100%" >
+						<forms:layout>
+							<forms:ColumnLayout id="_IDGenColumnLayout"/>
+						</forms:layout>
+						<forms:formContainers>
+							<forms:FormContainer id="customAttributesFormContainer"  title="{objectModel>/itemDetailTitle}">
+								<forms:formElements>
+									<forms:FormElement id="_OUTPUT_TYPE"  label="{i18n>output_type_txt}"  >
+										<forms:fields>
+											<ComboBox id="OUTPUT_TYPE" name="OutputType" required="true" items="{path: 'comboBoxModel>/OutputTypeSet', sorter: { path: 'Description' }}"
+												selectedKey="{objectModel>/dynamicForm/0/OutputType}" editable="{objectModel>/createEnable}" >
+												<core:Item id="_IDGenItem11" key="{comboBoxModel>OutputType}" text="{comboBoxModel>Description}"/>
+											</ComboBox>
+										</forms:fields>
+									</forms:FormElement>
+
+									<forms:FormElement id="id_UNAME"  label="{i18n>uname_txt}">
+										<forms:fields>						
+											<MultiInput id="_IDMulti_UNAME_2" name="Uname"
+												editable="{objectModel>/createEnable}"
+												enabled="true"								
+												showSuggestion="false"
+												showValueHelp="true"
+												submit="onCheckUname"
+												maxTokens="1"
+												required="true"
+												maxLength="12"								
+												change="onUnameChange"
+												tokenUpdate=".onTokenUpdate"
+												valueHelpRequest=".onValueHelpRequestAuto">  											
+											</MultiInput>
+										</forms:fields>
+									</forms:FormElement>																	
+									<forms:FormElement id="idOutputDevice" label="{i18n>out_device_txt}">
+										<forms:fields>
+											<Input id="OUTPUT_DEVICE" name="OutputDevice" showValueHelp="true" submit="onCheckOutputDevice" valueHelpRequest="onValueHelpRequest_Table"
+											value="{objectModel>/dynamicForm/0/OutputDevice}" editable="{objectModel>/editEnable}" valueLiveUpdate="true" change="onInputChange"/>		
+										</forms:fields>
+									</forms:FormElement>
+									<forms:FormElement id="idprint_immediately" label="{i18n>print_immediately_txt}" visible="false">
+										<forms:fields>
+												<Switch id="PRINT_IMMEDIATELY"											
+												state="{= ${objectModel>/dynamicForm/0/PrintImmediately} === true ? true : false}"
+												change="onInputChange"
+												customTextOn="Yes"
+												customTextOff="No"
+												enabled="{objectModel>/editEnable}"
+												/>
+										</forms:fields>
+									</forms:FormElement>
+									<forms:FormElement id="idrel_after_output" label="{i18n>rel_after_output_txt}" visible="false">
+										<forms:fields>
+											<Switch id="REL_AFTER_OUTPUT"
+												state="{= ${objectModel>/dynamicForm/0/RelAfterOutput} === true ? true : false}"
+												change="onInputChange"
+												visible="true"
+												customTextOn="Yes"
+												customTextOff="No"
+												enabled="{objectModel>/editEnable}"
+											/>
+										</forms:fields>
+									</forms:FormElement>									
+								</forms:formElements>
+							</forms:FormContainer>
+						</forms:formContainers>
+
+					</forms:Form>
+				 </VBox>
+				</content>
+				<footer>
+					<OverflowToolbar id="tbBottom" >
+						<ToolbarSpacer id="_IDGenToolbarSpacer4"/>
+						<Button id="btnSave" visible="{objectModel>/showFooter}" type="Emphasized" text="{i18n>saveBtnTxt}" tooltip="{i18n>saveBtnTxt}" press="onSave"/>
+						<Button id="btnCancel" visible="{objectModel>/showFooter}" text="{i18n>cancelBtnTxt}" tooltip="{i18n>cancelBtnTxt}" press="onCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+		</App>	
+</mvc:View>
