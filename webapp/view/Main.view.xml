@@ -12,7 +12,7 @@
 				<f:DynamicPageHeader id="_IDGenDynamicPageHeader" pinnable="true" visible="true">
 				<f:content>     
 					 <HBox id="_IDGenHBox1" alignItems="Start" justifyContent="Start" class="sapUiSmallMarginBottom pgTitleFont" >
-						<Title id="_IDGenTitle1" text="{i18n>title}"/>
+						<!-- <Title id="_IDGenTitle1" text="{i18n>title}"/> -->
 					</HBox>               
 					<fb:FilterBar id="_IDGenFilterBar12" 
 					search=".onSearchGo" 
@@ -84,10 +84,10 @@
 			</f:header>
 			<f:content>
 				<Table id="dynamicTable" showNoData="true" visible="true" mode="MultiSelect" 
-					growing="true" growingThreshold="20"  selectionChange="onRowSelectionChange"
+					growing="true" growingThreshold="10"  selectionChange="onRowSelectionChange"
 					updateFinished="fnOnDynamicTableUpdated"
 					items="{ path: 'dataModel>/itemTableDataSet',   templateShareable: false }" 
-					itemPress="onItemPress"	
+					itemPress="onItemPress"	sticky="ColumnHeaders,HeaderToolbar"
 					growingTriggerText="{i18n>btnGrowing}">
 						<headerToolbar>
 							<Toolbar id="_IDGenToolbar">
